@@ -2,7 +2,7 @@ import matplotlib.pyplot as plt
 import numpy as np
 from astropy import units as u
 from astropy import constants as v
-from scipy.integrate import s
+from scipy import integrate as s
 import time
 
 datos = np.loadtxt("sun_AM0.dat")
@@ -51,7 +51,12 @@ t4_0=time.time()
 i_f=np.trapz(f_1,y_1)
 t4_f=time.time()-t4_0
 
-print 'Integral 'I
+f= lambda x: (x**3)/np.exp(x) - 1
+integ=s.quad(f,0,np.inf)
+
+print integ
+'''
+print I
 print i
 print I_f
 print i_f
@@ -59,3 +64,4 @@ print t1_f
 print t3_f
 print t2_f
 print t4_f
+'''
