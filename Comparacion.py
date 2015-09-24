@@ -3,6 +3,7 @@ import numpy as np
 from astropy import units as u
 from astropy import constants as v
 
+#proceso repetido de etapas anteriores
 datos = np.loadtxt("sun_AM0.dat")
 
 x = datos[:,0]
@@ -42,6 +43,7 @@ for i in range(1,len(y_1)-1):
 I0=I_1+I_2+I_3
 I_f=K*I0
 
+#calculo de radio mediante la formula de la constante solar
 R=((Is/I_f)**0.5)*v.au
 
 print "Radio de la Tierra estimado=",R
