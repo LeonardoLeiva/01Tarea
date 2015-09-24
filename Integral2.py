@@ -53,9 +53,9 @@ for i in range(1,len(y_3)-1):
 Is=(4/3)*Is_3-(1/3)*Is_2
 
 
-
 I=I_1+I_2+I_3
 I_f=K*I
-print I_f
-print I
-print Is
+
+print "Valor de la Integral (Metodo de trapecios)",I
+print "Valor de la Integral (Metodo de Simpson)",Is
+print "Valor de la integral pedida (P)=",I_f

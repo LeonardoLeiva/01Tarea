@@ -21,3 +21,4 @@ plt.xlabel('$\lambda$ [$\mu m$]')
 
 plt.xlim(0,4)
 plt.show()
+plt.savefig('Gráfico.png')

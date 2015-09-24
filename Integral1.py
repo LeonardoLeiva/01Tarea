@@ -21,6 +21,8 @@ for i in range(0,len(x)-1):
     dy = y_f[i+1]+y_f[i]
     I = I+dx*dy/2
 tf=time.time()-t0
+Id=I.to('W/m2')
 
-print I
-print tf
+print "Integral Calculada por Metodo de Trapecios=", I
+print "Tiempo que toma el alrgoritmo=", tf
+print "Integral Calculada por Metodo de Trapecios en SI=", Id

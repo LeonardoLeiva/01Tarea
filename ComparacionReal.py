@@ -45,23 +45,32 @@ t2_f=time.time()-t2_0
 I0=I_1+I_2+I_3
 I_f=K*I0
 t3_0=time.time()
-i=np.trapz(y_f,x_f)
+i=s.trapz(y_f,x_f)
 t3_f=time.time()-t3_0
 t4_0=time.time()
-i_f=np.trapz(f_1,y_1)
+i_f=K*s.trapz(f_1,y_1)
 t4_f=time.time()-t4_0
 
-f= lambda x: (x**3)/np.exp(x) - 1
+t5_0=time.time()
+f= lambda x: (x**3)/(np.exp(x) - 1)
 integ=s.quad(f,0,np.inf)
+Iq=K*integ[0]
+t5_f=time.time()-t5_0
 
-print integ
-'''
-print I
-print i
-print I_f
-print i_f
-print t1_f
-print t3_f
-print t2_f
-print t4_f
-'''
+dI1=I-i
+dI2=I_f-i_f
+dI3=I_f-Iq
+
+dt1=t1_f-t3_f
+dt2=t2_f-t4_f
+dt3=t2_f-t5_f
+
+
+print "Valor de la integral (funcion quad)=", integ[0]
+print "Diferencia entre integral de la parte 2 calculada por el metodo creado y el de trapecios=",dI1
+print "Diferencia entre integral de la parte 3 calculada por el metodo creado y el de trapecios=",dI2
+print "Diferencia entre integral de la parte 3 calculada por el metodo creado y la funcion quad=",dI3
+print "Diferencia de tiempo tomado entre los metodos (integral 1)=",dt1
+print "Diferencia de tiempo tomado entre los metodos trapecios (integral 2)=",dt2
+print "Diferencia de tiempo tomado entre los metodos quad (integral 2)=",dt3
+print len(x_f)

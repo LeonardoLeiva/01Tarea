@@ -44,6 +44,4 @@ I_f=K*I0
 
 R=((Is/I_f)**0.5)*v.au
 
-print Is
-print I_f
-print R
+print "Radio de la Tierra estimado=",R
